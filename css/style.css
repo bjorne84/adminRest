@@ -1,0 +1,346 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Remove default padding */
+
+/*
+ul[class], ol[class] {
+    padding: 0;
+}*/
+
+/* Remove default margin, kanske lägga till a också? */
+
+body, h1, h2, h3, h4, p, a, ul[class], ol[class], li, figure, figcaption, blockquote, dl, dd {
+    margin: 0;
+}
+
+/* Set core body defaults */
+
+body {
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    /*text-rendering: optimizeSpeed; denna egenskap validerar ej*/
+    line-height: 1.5;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+
+/*
+ul[class], ol[class] {
+    list-style: none;
+}*/
+
+/* A elements that don't have a class get default styles 
+Validerar ej: Egenskap text-decoration-skip-ink finns inte : auto */
+
+/*a:not([class]) {
+  text-decoration-skip-ink: auto;
+}*/
+
+/* Make images easier to work with */
+
+img, picture, source {
+    max-width: 100%;
+    display: block;
+    border-radius: 2px;
+}
+
+/* Natural flow and rhythm in articles by default */
+
+/*article>*+* {
+    margin-top: 1em;
+}*/
+
+/* Inherit fonts for inputs and buttons */
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+/* Plockar bort padding på vänster sida för listor*/
+
+ul {
+    padding-left: 0;
+}
+
+/* ------------------END CLEARING OF SETTINGS ---------------------------------------*/
+
+/* ALLMÄNNA INSTÄLLNINGAR FÖR HELA SIDAN*/
+
+/* Sätter font-size till 62.5 % vilket innebär att sätter man 
+sedan texten i ett p-element till 1.6 rem = 16 px
+då 62.5 % av 16px som är standardinställningen är 10 px*/
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    padding: 0;
+    background-color: #F6F6F6;
+    text-align: left;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #222120;
+    font-size: 1.6rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+header {
+    min-height: 7em;
+    background-color: #8a8685;
+}
+
+.headContainer {
+    max-width: 1220px;
+    margin: 0 auto;
+    background-color: #8a8685;
+}
+
+footer {
+    margin: 0 auto;
+    margin-top: 4em;
+    background-color: #8a8685;
+    min-height: 10em;
+}
+.footContainer {
+    display: flex;
+    max-width: 1220px;
+    flex-direction: column;
+    margin: 0 auto;
+    text-align: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 10em;
+
+}
+footer p {
+    text-align: center;
+    width: 100%;
+    color: azure;
+    font-size: 1.8em;
+}
+.vertical {
+    display: flex;
+}
+main {
+    max-width: 1220px;
+    margin: 0 auto;
+}
+header h3 {
+    color: azure;
+}
+/* meny*/
+.menuText {
+    font-size: 1.8rem;
+}
+
+.nav ul {
+    display: flex;
+    flex-direction: row;
+    min-width: 100%;
+
+}
+
+.li {
+    margin-left: 1em;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 0.2em 1em;
+    border: solid 1px #ffffff;
+    border-radius: 4px;
+}
+
+.li:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+    transition: ease-in 1ms;
+}
+
+h1 {
+        
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 5rem;
+    font-weight: 900;
+    line-height: 1.4;
+    text-align: left;
+}
+
+h2 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #2D2929;
+    font-size: 3rem;
+    font-weight: bold;
+}
+h3 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #178f3f;
+    font-size: 2.2rem;
+    font-weight: bold;
+}
+/* Paragraf*/
+p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #3B2727;
+    font-size: 1.6rem;
+    line-height: 2.9rem;
+}
+
+
+.menuText {
+    color: #F6F4F2;
+    text-decoration: none;
+    line-height: 2em;
+    font-size: 2.4rem;
+}
+
+.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#btn-create {
+    margin-top: 0.8em;
+}
+
+/* Klass knappar*/
+
+.btn {
+    color: #fff;
+    background-color: #f16334;
+    border: solid 1px #fff;
+    border-radius: 0.2em;
+    font-size: 1.3em;
+    padding: 0.3em 0.7em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn:hover {
+    background-color: #e74e1a;
+    transition: ease-in 0.5ms;
+}
+
+.btn2 {
+    font-size: 1.1em;
+    padding: 0.2em 0.5em;
+}
+
+.btn-reset {
+    background-color: #8a8685;
+    margin-left: 2em;
+}
+
+.btn-reset:hover {
+    background-color: #6d6a69;
+    transition: ease-in 0.5ms;
+}
+
+.btn-ingr {
+    margin-top: 0.6em;
+    background-color: #037737;
+    font-size: 1em;
+    padding: 0.1em 0.3em;
+}
+
+.btn-ingr:hover {
+    background-color: #035025;
+    transition: ease-in 0.5ms;
+}
+
+
+
+/* *************************************************
+***************     Formulär ***********************
+***** Skapa användare / logga in osv  ***********************
+***************************************************/
+
+/* Klass för forumulär*/
+
+.forms {
+    max-width: 100%;
+}
+
+/* ID för formulär skapa användare*/
+
+#formCreate {
+    padding-top: 1em;
+}
+
+/* paragraf text för field*/
+
+.pfield {
+    color: #fff;
+    padding-bottom: 0.5em;
+}
+
+/* paragraf text för field*/
+
+.afield {
+    color: #fff;
+    font-size: 1.4rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    vertical-align: bottom;
+    padding-left: 2em;
+}
+
+.afield:hover {
+    font-weight: bold;
+}
+
+#field {
+    border-radius: 0.2em;
+    background-color: #615b5b;
+    color: #fff;
+    border: none;
+    padding-bottom: 1.3em;
+    padding-top: 1.5em;
+    /*box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.25);*/
+}
+
+/* Klass input-fält */
+
+.input {
+    border-radius: 0.2em;
+    border: none;
+    margin-bottom: 0.2em;
+    color: #464645;
+    font-size: 1.4rem;
+}
+
+.portions {
+    border-radius: 0.2em;
+}
+
+textarea {
+    border-radius: 0.2em;
+    border: none;
+}
+
+/* Används för att skriva ut felmeddelanden*/
+
+.pError {
+    color: #ad040c;
+    font-weight: bold;
+}
+.errorLight {
+    color: #fff;
+    font-weight: bold;
+    padding: 0.6em;
+}
+
+/* div med error*/
+.errorDiv {
+background-color: red;
+border: solid 2px #fff;
+max-width: 40rem;
+}
