@@ -340,10 +340,11 @@ margin-bottom: 30px;
 
 .input {
     border-radius: 0.2em;
-    border: none;
+    border: solid 1px #464645;
     margin-bottom: 0.2em;
     color: #464645;
     font-size: 1.4rem;
+    width: 300px;
 }
 
 .portions {
@@ -353,6 +354,13 @@ margin-bottom: 30px;
 textarea {
     border-radius: 0.2em;
     border: none;
+}
+
+/* field för input*/
+.field2 {
+    border-radius: 0.2em;
+    border: solid 1px #464645;
+    background-color: #cec9c9;
 }
 
 /* Används för att skriva ut felmeddelanden*/
