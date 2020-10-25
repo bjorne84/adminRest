@@ -72,6 +72,10 @@ ul {
 sedan texten i ett p-element till 1.6 rem = 16 px
 då 62.5 % av 16px som är standardinställningen är 10 px*/
 
+
+
+
+
 html {
     font-size: 62.5%;
 }
@@ -256,9 +260,34 @@ ul {
     background-color: #035025;
     transition: ease-in 0.5ms;
 }
+/* Section holds content in main*/
+.sectionPadding {
+    padding-left: 2em;
+    padding-top: 1em;
+}
+
+/* output ul list*/
+/* div getcourse*/
+.getcourse {
+max-width: 30em;
+border-bottom: dotted 5px #e74e1a;
+margin-bottom: 30px;
+}
+.li_nth:nth-child(odd) {
+    background: rgb(204, 204, 206);
+  }
+.lispan {
+    display: flex;
+    justify-content: space-between;
+    /*max-width: 15em;*/
+    padding-left: 1em;
+}
 
 
-
+.btn-wrapper {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
 /* *************************************************
 ***************     Formulär ***********************
 ***** Skapa användare / logga in osv  ***********************
