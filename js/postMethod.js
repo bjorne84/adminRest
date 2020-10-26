@@ -13,10 +13,6 @@ formCreateEl.addEventListener('submit', (e) => {
     createCourse();
 });
 
-window.addEventListener('load', sayHi);
-function sayHi() {
-    console.log("hi s");
-}
 
 
 // Skapar kurser
@@ -60,3 +56,26 @@ function createCourse() {
 
 
 // Delete
+function deleteCourse(id) {
+    // Skapar objekt som innehåller kurs ID
+    let obj = {
+        "Table": "courses",
+        "Id_type": "Course_ID",
+        "Id_push": 23
+    };
+    /* Fetchar, skickar med metod delete och body med JSON-fil som 
+    görs av objektet*/
+    fetch('http://localhost/webb01_projekt/restapi/', {
+        method: 'DELETE',
+        body: JSON.stringify(obj),
+    })
+    // Tar emot respons-data i JSON-format
+    .then(response => response.json())
+    // Laddar om kurslistan
+    .then(data => {
+        getCourse();
+    })
+    .catch(error => {
+        console.log('Error: ', error);
+    })
+}

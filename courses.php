@@ -41,8 +41,7 @@ include('includes/header.php');
         </div>
     </section>
 </main>
-<script src="js/getMethod.js"></script>
-<script src="js/postMethod.js"></script>
+<script src="js/courses.js"></script>
 <?php
 include('includes/footer.php');
 ?>
