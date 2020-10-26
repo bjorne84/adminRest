@@ -2,10 +2,12 @@
 let courseEl = document.getElementById('courseWrapper');
 // element för att välja program/utbildning
 let programmeEl = document.getElementById('programme');
+let languages_outEl = document.getElementById('languages_out');
 
 // Händelselyssnare, när sidan har laddat klart
 window.addEventListener('load', getCourse);
 window.addEventListener('load', getEducationToSelect);
+window.addEventListener('load', getAllLanguages);
 
 //Händelselyssnare för formuläret, skapa ny kurs
 
@@ -19,6 +21,7 @@ function getCourse() {
         .then(response => response.json()
             .then(data => {
                 data.forEach(course => {
+                    console.log(course);
                     courseEl.innerHTML +=
                         `<div class="getcourse">
                             <ul class="ul">
@@ -33,25 +36,66 @@ function getCourse() {
                                 <button id="btn_del_${course.Course_ID}" class="btn btn2 btn-reset" onClick="deleteCourse(${course.Course_ID})">Delete</button>
                             </div>
                         </div>`
+                   // let lastli = getElementById(`lastli${course.Course_ID}`);
                 })
             })
         )
 }
 
 
+/* This data is used in the form */
 function getEducationToSelect() {
-        // Get data over courses and education from this url
-        fetch('https://webb01.se/restapi/?table=education')
+    // Get data over education from this url
+    fetch('https://webb01.se/restapi/?table=education')
         .then(response => response.json()
             .then(data => {
                 data.forEach(education => {
                     //console.log(education);
                     // info insereted in form select, as dropdown
                     programmeEl.innerHTML +=
-                        `<option value="${education.Education_ID}<">${education.Programme}</option>
+                        `<option value="${education.Education_ID}">${education.Programme}</option>
                         `
                 })
             })
         )
 }
+
+
+// Function to get all langueages
+function getAllLanguages() {
+    // Get data over education from this url
+    fetch('https://webb01.se/restapi/?table=language')
+        .then(response => response.json()
+            .then(data => {
+                data.forEach(language => {
+                    console.log(language);
+                    // info insereted in form select, as dropdown
+                    languages_outEl.innerHTML +=
+                        `<option value="${language.Language_ID}">${language.Language}</option>
+                    `
+                })
+            })
+        )
+}
+
+
+
+
+// Function to get all languages for a specific course
+function getLanguagesById(id) {
+    // Get data over languages 
+    fetch(`https://webb01.se/restapi/?table=courseslang&id=${id}`)
+        .then(response => response.json()
+            .then(data => {
+                data.forEach(lang => {
+                    //console.log(education);
+                    // info insereted in form select, as dropdown
+                    programmeEl.innerHTML +=
+                        `<option value="${lang.Language}<">${education.Programme}</option>
+                    `
+                })
+            })
+        )
+}
+
 

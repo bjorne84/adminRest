@@ -12,7 +12,7 @@
          <!--Displays the whole menu if user is logged in -->
         <?php if(isset($_SESSION['username'])) : ?>
         <li class="li"><a class="menuText" href="courses.php">Courses</a></li>
-        <li class="li"><a class="menuText" href="post.php">Portfolio</a></li>
+        <li class="li"><a class="menuText" href="testjson.php">testjson</a></li>
         <li class="li"><a class="menuText" href="post.php">Work</a></li>
         <li class="li"><a class="menuText" href="post.php">Languages</a></li>
         <?php endif; ?>
