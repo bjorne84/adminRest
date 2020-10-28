@@ -22,12 +22,12 @@ include('includes/header.php');
                 <br>
                 <label for="grade">Grade:</label><br>
                 <input type="text" name="grade" id="grade" class="input" placeholder="add grade"><br>
-                <label for="cars">Välj språk: (håll in ctrl för att välja flera)</label><br>
+                <label for="languages_out">Välj språk: (håll in ctrl för att välja flera)</label><br>
                 <!--Multiple for possible to choose multiply valuus-->
                 <select name="languages_out" id="languages_out" multiple>
                 </select><br>
                 <!--<button type = "button" class="btn3" onclick = "addLanguages()">Add languages</button>-->
-                <p>Finns inte språket, lägg till <a href="">nytt här</a></p>
+                <p>Finns inte språket, lägg till <a href="webb01_projekt/adminRest/langauges.php">nytt här</a></p>
                 <div class="btn-wrapper">
                     <button type="submit" name="submitPost" id="btncreate" class="btn btn2">Publish</button>
                     <button type="reset" name="deletePost" id="btn-reset" class="btn btn2 btn-reset">Delete

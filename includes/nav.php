@@ -12,7 +12,8 @@
          <!--Displays the whole menu if user is logged in -->
         <?php if(isset($_SESSION['username'])) : ?>
         <li class="li"><a class="menuText" href="courses.php">Courses</a></li>
-        <li class="li"><a class="menuText" href="work.php">Work - cv</a></li>
+        <li class="li"><a class="menuText" href="work.php">Work - CV</a></li>
+        <li class="li"><a class="menuText" href="portfolio.php">Portfolio</a></li>
         <li class="li"><a class="menuText" href="langauges.php">Languages</a></li>
         <?php endif; ?>
         <!-- # är för att länka till en viss plats på sidan, tror detta skall bort
