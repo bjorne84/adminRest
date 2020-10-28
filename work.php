@@ -22,7 +22,7 @@ include('includes/header.php');
                 <label for="startdate_work">Start date:</label>
                 <input type="date" id="startdate_work" name="startdate_work" value="2018-07-22" min="2000-01-01" max="2021-12-31">
                 <label for="enddate_work">End date:</label>
-                <input type="date" id="enddate_work" name="enddate_work" value="2018-07-22" min="2000-01-01" max="2021-12-31">
+                <input type="date" id="enddate_work" name="enddate_work" value="2018-07-22" max="2021-12-31">
                 <div class="btn-wrapper">
                     <button type="submit" name="submitPost" id="btncreate_work" class="btn btn2">Publish</button>
                     <button type="reset" name="deletePost" id="btn-reset_work" class="btn btn2 btn-reset">Delete

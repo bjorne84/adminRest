@@ -242,3 +242,5 @@ function deleteLang(id) {
             console.log('Error: ', error);
         })
 }
+
+
