@@ -13,8 +13,7 @@
         <?php if(isset($_SESSION['username'])) : ?>
         <li class="li"><a class="menuText" href="courses.php">Courses</a></li>
         <li class="li"><a class="menuText" href="testjson.php">testjson</a></li>
-        <li class="li"><a class="menuText" href="post.php">Work</a></li>
-        <li class="li"><a class="menuText" href="post.php">Languages</a></li>
+        <li class="li"><a class="menuText" href="langauges.php">Languages</a></li>
         <?php endif; ?>
         <!-- # är för att länka till en viss plats på sidan, tror detta skall bort
         <li class="li"><a class="menuText" href="start.html#aside">Bloggare</a></li>-->
