@@ -24,6 +24,19 @@ let formHeading_workEl = document.getElementById("formHeading_work");
 // Händelselyssnare, när sidan har laddat klart
 window.addEventListener('load', getWork);
 
+//formCreate.addEventListener('submit', createCourse());
+formCreate_workEl.addEventListener('submit', (e) => {
+    e.preventDefault(); // Förhindrar att sidan laddas om
+    // IF /else id its a new/post or update/put 
+    if (hiddenIn.value === "new") {
+        createWork();
+    } else if (hiddenIn.value === "update") {
+        updateCourseApi(updateId);
+    }
+});
+
+
+
 
 /* ******************************************
 ********* GET work experience ***************
@@ -64,23 +77,22 @@ function getWork() {
 function createWork() {
 
     // Sparar variabler med värde från formuläret
-    let programme = programmeIn.value;
-    let course = courseIn.value;
-    let points = pointsIn.value;
-    let grade = gradeIn.value;
+    let workplace_nameEl = workplace_nameIn.value;
+    let titel_workEl = titel_workIn.value;
+    let description_workEl = description_workIn.value;
+    let startdate_workEl = startdate_workIn.value;
+    let enddate_workEl = enddate_workIn.value;
 
-    let langArr2 = addLanguages();
-    
 
     // Sparar ner det som ett objekt som sedan görs om till JSON-format
     let courseObj = {
-        "Table": "courses",
+        "Table": "work_experience",
         "Indata": {
-            "Education_ID": programme,
-            "CourseName": course,
-            "Points": points,
-            "Grade": grade,
-            "Languages_id": langArr2
+            "Workplace": workplace_nameEl,
+            "Titel": titel_workEl,
+            "Description": description_workEl,
+            "Startdate": startdate_workEl,
+            "Enddate": enddate_workEl
         }
     }
 
@@ -94,9 +106,9 @@ function createWork() {
         .then(data => {
             // message
             let message = data.message;
-            document.getElementById("message_form").innerHTML = message;
-            getCourse();
-            document.getElementById("formCreate2").reset();
+            document.getElementById("message_form_work").innerHTML = message;
+            getWork();
+            document.getElementById("formCreate_work").reset();
         })
         .catch(error => {
             console.log('Error: ', error);
