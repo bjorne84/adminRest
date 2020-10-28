@@ -2,6 +2,7 @@
 let courseEl = document.getElementById('courseWrapper');
 // element för att välja program/utbildning
 let programmeEl = document.getElementById('programme');
+//select element
 let languages_outEl = document.getElementById('languages_out');
 
 
