@@ -108,7 +108,7 @@ function getAllLanguages() {
         .then(response => response.json()
             .then(data => {
                 data.forEach(language => {
-                    console.log(language);
+                   // console.log(language);
                     // info insereted in form select, as dropdown
                     languages_outEl.innerHTML +=
                         `<option value="${language.Language_ID}">${language.Language}</option>
