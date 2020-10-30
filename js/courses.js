@@ -34,6 +34,10 @@ window.addEventListener('load', getCourse);
 window.addEventListener('load', getEducationToSelect);
 window.addEventListener('load', getAllLanguages);
 
+
+
+
+
 //Händelselyssnare för formuläret, skapa ny kurs
 //formCreate.addEventListener('submit', createCourse());
 formCreateEl.addEventListener('submit', (e) => {
@@ -230,7 +234,8 @@ function updateCourseApi(id) {
             "Education_ID": programme2,
             "CourseName": course2,
             "Points": points2,
-            "Grade": grade2
+            "Grade": grade2,
+            "Languages_id": langArr
         }
     }
 
@@ -274,7 +279,7 @@ function updateCourse(id) {
 
                 //change heading
                 formHeadingEl.innerHTML = "Update courses";
-                echoMethod();
+        
 
             })
 
@@ -310,3 +315,4 @@ function deleteCourse(id) {
             console.log('Error: ', error);
         })
 }
+

@@ -22,7 +22,7 @@ include('includes/header.php');
                 <br>
                 <label for="grade">Grade:</label><br>
                 <input type="text" name="grade" id="grade" class="input" placeholder="add grade"><br>
-                <label for="languages_out">Välj språk: (håll in ctrl för att välja flera)</label><br>
+                <label for="languages_out">Välj språk för webbutveckling: (håll in ctrl för att välja flera)</label><br>
                 <!--Multiple for possible to choose multiply valuus-->
                 <select name="languages_out" id="languages_out" multiple>
                 </select><br>

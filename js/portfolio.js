@@ -28,16 +28,13 @@ let langArr = [];
 
 // Händelselyssnare, när sidan har laddat klart
 window.addEventListener('load', getAllLanguages2);
-
 window.addEventListener('load', getPortfolio);
-window.addEventListener('load', test);
 
 
 // PATH live and local
 const urlPath = "/webb01_projekt/adminRest/";
 const urlImg = "/webb01_projekt/adminRest/gallery/";
 
-//let updateId;
 // true / false for adding img
 let imgSetter = false;
 
@@ -67,7 +64,7 @@ formCreate_portEl.addEventListener('submit', (e) => {
 
     } else if (hidden_portIn.value === "update") {
         sendImg2();
-        updatePortApi(updateId, imgSendName);
+        updatePortfolioApi(updateId, imgSendName);
     }
 });
 
@@ -105,8 +102,8 @@ function getPortfolio() {
                                 <li id="last_port_${portfolio.Portfolio_ID}" class="li_nth"><div id=portlang_${portfolio.Portfolio_ID} class="lispan"><span class="courseSpan">Språk:</span></div></li>
                             </ul>
                             <div class="btn-wrapper btn_wrapper2">
-                                <button id="btn_up_${portfolio.Portfolio_ID}" class="btn btn2" onClick="updateCourse(${portfolio.Portfolio_ID})">Update</button>
-                                <button id="btn_del_${portfolio.Portfolio_ID}" class="btn btn2 btn-reset" onClick="deleteCourse(${portfolio.Portfolio_ID})">Delete</button>
+                                <button id="btn_up_${portfolio.Portfolio_ID}" class="btn btn2" onClick="updatePortfolio(${portfolio.Portfolio_ID})">Update</button>
+                                <button id="btn_del_${portfolio.Portfolio_ID}" class="btn btn2 btn-reset" onClick="deletePortfolio(${portfolio.Portfolio_ID})">Delete</button>
                             </div>
                         </div>`
                         portfolio.languages.forEach(lang => {
@@ -122,9 +119,6 @@ function getPortfolio() {
         )
 }
 
-function test() {
-    console.log("hej");
-}
 
 // Function to get all langueages
 function getAllLanguages2() {
@@ -226,5 +220,110 @@ function sendImg2() {
     }).catch(console.error);
 }
 
+
+/* ******************************************
+********* PUT Update portfolio ***************
+******************************************** */
+function updatePortfolioApi(id, url) {
+    // Sparar variabler med värde från formuläret
+ 
+    let title_portEl = title_portIn.value;
+    let url_portEl = url_portIn.value;
+    let description_portEl = description_portIn.value;
+
+
+    let langArr = addLanguages2();
+    
+    // Sparar ner det som ett objekt som sedan görs om till JSON-format
+    let Obj = {
+        "Table": "portfolio",
+        "Id_push": id,
+        "Indata": {
+            "Titel": title_portEl,
+            "URL": url_portEl,
+            "Image_url": url,
+            "Description": description_portEl,
+            "Bridge_portfolio_id": langArr
+        }
+    }
+
+    //Skapar fetch-anrop
+    fetch('https://webb01.se/restapi/', {
+        method: 'PUT',
+        body: JSON.stringify(Obj),
+    })
+        //Vi kollar responsen, att anropet lyckats
+        .then(response => response.json())
+        .then(data => {
+            // message
+            let message = data.message;
+            document.getElementById("message_form").innerHTML = message;
+            getCourse();
+            document.getElementById("formCreate2").reset();
+        })
+        .catch(error => {
+            console.log('Error: ', error);
+        })
+
+}
+
+
+function updatePortfolio(id) {
+    // Get data over portfolio in this url
+    fetch(`https://webb01.se/restapi/?table=portfolio&id=${id}`)
+        .then(response => response.json()
+            .then(data => {
+                //Sets stored values to the form
+                title_portIn.value = data[0].Titel;
+                url_portIn.value = data[0].URL;
+                image_portIn.value = data[0].Image_url;
+                description_portIn.value = data[0].Description;
+                //Change method to put aka update
+                hidden_portIn.value = "update";
+                updateId = data[0].Portfolio_ID;
+                //hiddenInId.valiue =  data[0].Course_ID;
+
+                //change heading
+                formHeadingEl.innerHTML = "Update portfolio";
+    
+
+            })
+
+        )
+}
+
+
+
+
+
+
+
+/* ******************************************
+********* DELETE portfolio ***************
+******************************************** */
+function deletePortfolio(id) {
+    // Skapar objekt som innehåller portfolio ID
+
+    let obj = {
+        "Table": "portfolio",
+        "Id_type": "Portfolio_ID",
+        "Id_push": id
+    }
+    /* Fetchar, skickar med metod delete och body med JSON-fil som  https://webb01.se/restapi/
+    görs av objektet*/
+    fetch('https://webb01.se/restapi/', {
+        method: 'DELETE',
+        body: JSON.stringify(obj),
+    })
+        // Tar emot respons-data i JSON-format
+        .then(response => response.json())
+        // Laddar om portfoliosidan
+        .then(data => {
+            getPortfolio();
+        })
+        .catch(error => {
+            console.log('Error: ', error);
+        })
+}
 
 
